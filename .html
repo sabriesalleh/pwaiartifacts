@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px'}}}%%
+graph LR
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph Initiation
+    A["
+    Initiation
+    ---
+    • Site Supervisor submits claim via Swipey.co
+    • Finance Clerk receives claim notification
+    • Finance Clerk verifies claim details in Swipey.co:
+        ◦ Check claimant information
+        ◦ Verify expense categories
+        ◦ Ensure all required documents are attached
+    • Finance Clerk checks line-by-line invoices:
+        ◦ Verify invoice dates
+        ◦ Check invoice numbers
+        ◦ Confirm expense amounts
+        ◦ Ensure invoices match claim details
+    "]:::FinanceClerk
+    end
+
+    subgraph Processing
+    B["
+    Processing
+    ---
+    • Finance Clerk enters data in Xero:
+        ◦ Create new expense entry
+        ◦ Input invoice details
+        ◦ Assign correct expense categories
+        ◦ Attach digital copies of invoices
+    • Finance Clerk reconciles in Xero:
+        ◦ Match transactions with bank statements
+        ◦ Resolve any discrepancies
+        ◦ Ensure all entries are correctly categorized
+    • Finance Clerk prepares payment in Maybank online banking:
+        ◦ Enter payment details
+        ◦ Double-check recipient information
+        ◦ Verify payment amount
+    "]:::FinanceClerk
+    end
+
+    subgraph Approval
+    C["
+    Approval
+    ---
+    • Finance Manager reviews claim and reconciliation:
+        ◦ Check for any unusual expenses
+        ◦ Verify adherence to company policies
+        ◦ Ensure all necessary approvals are in place
+    • Finance Manager approves or rejects claim:
+        ◦ If approved, authorize payment
+        ◦ If rejected, provide detailed reasons
+        ◦ Return to Finance Clerk for correction if needed
+    "]:::FinanceManager
+    end
+
+    subgraph Payment
+    D["
+    Payment
+    ---
+    • Finance Clerk processes payment via Maybank online banking:
+        ◦ Execute authorized payment
+        ◦ Record transaction details
+        ◦ Save payment confirmation
+    • Finance Clerk updates status:
+        ◦ Mark claim as paid in Swipey.co
+        ◦ Update payment status in Xero
+        ◦ Attach payment confirmation to claim record
+    "]:::FinanceClerk
+    end
+
+    subgraph Reporting
+    E["
+    Reporting
+    ---
+    • Finance Manager generates reports:
+        ◦ Create monthly petty cash summary
+        ◦ Prepare expense category analysis
+        ◦ Generate reconciliation report
+    • CFO reviews reports:
+        ◦ Analyze spending patterns
+        ◦ Identify any anomalies
+        ◦ Assess compliance with budget
+    • CFO provides decision if necessary:
+        ◦ Approve continuation of current processes
+        ◦ Recommend policy changes if needed
+        ◦ Suggest improvements to the workflow
+    "]:::CFO
+    end
+
+    A --> B --> C --> D --> E
+    </div>
+</body>
+</html>
