@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '12px'}}}%%
+graph LR
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph Initiation
+    A[Initiation<br><br>• Site Supervisor submits claim<br>• Finance Clerk receives claim<br>• Finance Clerk verifies claim details in Swipey.co<br>• Finance Clerk checks line-by-line invoices<br>• Ensure all receipts are attached<br>• Verify claim amount matches receipts<br>• Check claim is within budget limits<br>• Confirm claim is for approved expenses]:::FinanceClerk
+    end
+
+    subgraph Processing
+    B[Processing<br><br>• Enter claim data in Xero<br>• Categorize expenses correctly<br>• Reconcile claim in Xero<br>• Match transactions with bank statements<br>• Prepare payment in Maybank online banking<br>• Double-check payment details<br>• Ensure correct beneficiary information]:::FinanceClerk
+    end
+
+    subgraph Approval
+    C[Approval<br><br>• Finance Manager reviews claim and reconciliation<br>• Check for any discrepancies or unusual expenses<br>• Verify compliance with company policies<br>• Approve or reject claim<br>• If rejected, provide clear reasons<br>• If approved, authorize payment in online banking<br>• Sign off on the approval in Swipey.co]:::FinanceManager
+    end
+
+    subgraph Payment
+    D[Payment<br><br>• Finance Clerk processes payment via online banking<br>• Verify payment details one last time<br>• Execute the payment<br>• Record payment date and transaction ID<br>• Update status in Swipey.co<br>• Update status in Xero<br>• File all related documents]:::FinanceClerk
+    end
+
+    subgraph Reporting
+    E[Reporting<br><br>• Finance Manager generates reports in Xero<br>• Prepare summary of petty cash transactions<br>• Analyze trends and anomalies<br>• CFO reviews reports<br>• Identify any areas of concern<br>• Provide decisions or recommendations<br>• Suggest process improvements if necessary]:::FinanceManager
+    F[CFO Review<br><br>• Review summary reports<br>• Analyze financial impact<br>• Check for policy compliance<br>• Identify any suspicious patterns<br>• Provide strategic input<br>• Make decisions on process changes if needed]:::CFO
+    end
+
+    A --> B --> C --> D --> E --> F
+    </div>
+</body>
+</html>
