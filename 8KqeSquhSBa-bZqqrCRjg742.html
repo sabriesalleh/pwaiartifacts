@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    subgraph "Phase 1: Request Submission"
+        A[Site Supervisor submits petty cash form request] -->|Swipey.co| B[Finance Clerk receives request]
+    end
+
+    subgraph "Phase 2: Initial Verification"
+        B -->|Xero| C[Finance Clerk verifies claim details]
+        C -->|Swipey.co| D[Finance Clerk checks line-by-line invoices]
+    end
+
+    subgraph "Phase 3: Claim Processing"
+        D -->|Xero| E[Finance Clerk processes claim]
+        E -->|Xero| F[Finance Clerk reconciles in accounting software]
+    end
+
+    subgraph "Phase 4: Manager Approval"
+        F -->|Swipey.co| G[Finance Manager reviews claim]
+        G -->|Swipey.co| H{Finance Manager approves?}
+        H -->|Yes| I[Finance Manager authorizes payment]
+        H -->|No| J[Return to Finance Clerk for correction]
+        J -->|Swipey.co| C
+    end
+
+    subgraph "Phase 5: Payment Execution"
+        I -->|Online Banking| K[Finance Clerk initiates payment]
+        K -->|Online Banking| L[Payment processed]
+    end
+
+    subgraph "Phase 6: Monthly Review"
+        L -->|Xero| M[CFO reviews monthly report]
+        M -->|Xero| N[CFO provides feedback and decisions]
+    end
+
+    classDef financeClerk fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef financeManager fill:#98FB98,stroke:#333,stroke-width:2px;
+    classDef cfo fill:#87CEFA,stroke:#333,stroke-width:2px;
+
+    class B,C,D,E,F,K financeClerk;
+    class G,H,I financeManager;
+    class M,N cfo;
+    </div>
+</body>
+</html>
