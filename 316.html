@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#87CEFA,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef barista fill:#98FB98,stroke:#333,stroke-width:2px;
+
+    A[Start of Shift] --> B[Prepare Mise en Place]
+    B --> C[Check & Organize Tools]
+    C --> D[Review SOP Book]
+    D --> E[Wait for Order]
+    E --> F[Receive Order Docket]
+    F --> G{Is order clear?}
+    G -->|Yes| H[Prepare Drinks]
+    G -->|No| I[Consult Supervisor]
+    I --> H
+    H --> J[Use Proper Measurements]
+    J --> K[Follow SOP for Each Drink]
+    K --> L[Monitor Preparation Time]
+    L --> M[Use Correct Glassware]
+    M --> N[Compare with Reference Pictures]
+    N --> O{Drinks correct?}
+    O -->|Yes| P[Place on Serving Tray]
+    O -->|No| Q[Adjust as Needed]
+    Q --> N
+    P --> R[Ring Bell for Waiter]
+    R --> S[Check and Tick Off Orders]
+    S --> T[Place Completed Docket in Basket]
+    T --> U[Clean and Reset Station]
+    U --> E
+
+    class B,C,D,H,J,K,L,M,N,Q,U barista;
+    class F,R,S,T waiter;
+    class I supervisor;
+
+    subgraph Preparation Phase
+        B
+        C
+        D
+    end
+
+    subgraph Order Processing Phase
+        E
+        F
+        G
+        I
+    end
+
+    subgraph Drink Preparation Phase
+        H
+        J
+        K
+        L
+        M
+        N
+        O
+        Q
+    end
+
+    subgraph Service Phase
+        P
+        R
+        S
+        T
+    end
+
+    subgraph Reset Phase
+        U
+    end
+    </div>
+</body>
+</html>
