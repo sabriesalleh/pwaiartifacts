@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f0f0f0', 'secondaryColor': '#f0f0f0'}}}%%
+graph LR
+    subgraph "Preparation Phase"
+        A["Mise en Place<br>(Barista)<br><br>- Check inventory<br>- Prepare ingredients<br>- Clean workspace<br>- Organize tools<br>- Review SOP book<br>- Calibrate equipment"]
+        style A fill:#98FB98,stroke:#333,stroke-width:2px
+    end
+    subgraph "Order Reception"
+        B["Receive Order<br>(Waiter)<br><br>- Collect docket from printer<br>- Review order details<br>- Confirm special requests<br>- Prioritize orders<br>- Communicate with kitchen"]
+        style B fill:#87CEFA,stroke:#333,stroke-width:2px
+    end
+    subgraph "Drink Preparation"
+        C["Prepare Drinks<br>(Barista)<br><br>- Follow SOP for each drink<br>- Use correct measurements<br>- Monitor preparation time<br>- Use proper glassware<br>- Garnish as specified<br>- Double-check quality"]
+        style C fill:#98FB98,stroke:#333,stroke-width:2px
+    end
+    subgraph "Quality Check"
+        D["Verify Drinks<br>(Supervisor)<br><br>- Compare with reference pictures<br>- Check presentation<br>- Taste test if necessary<br>- Approve or request adjustments<br>- Ensure order accuracy"]
+        style D fill:#FFA07A,stroke:#333,stroke-width:2px
+    end
+    subgraph "Service"
+        E["Serve Drinks<br>(Waiter)<br><br>- Place drinks on tray<br>- Double-check order<br>- Ring bell for service<br>- Deliver to customers<br>- Confirm satisfaction"]
+        style E fill:#87CEFA,stroke:#333,stroke-width:2px
+    end
+    subgraph "Reset & Clean"
+        F["Reset Station<br>(Barista)<br><br>- Clean used equipment<br>- Restock ingredients<br>- Dispose of waste<br>- Sanitize work area<br>- Prepare for next order"]
+        style F fill:#98FB98,stroke:#333,stroke-width:2px
+    end
+
+    A -->|"Prep Complete"| B
+    B -->|"Order Received"| C
+    C -->|"Drinks Ready"| D
+    D -->|"Approved"| E
+    E -->|"Served"| F
+    F -->|"Reset Complete"| B
+    </div>
+</body>
+</html>
