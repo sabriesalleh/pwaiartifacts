@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef barista fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    A[Start] --> B[Prepare Mise en Place]
+    B --> C[Receive Order Docket]
+    C --> D{Check SOP Book}
+    D --> E[Measure Ingredients]
+    E --> F[Prepare Drink]
+    F --> G{Quality Check}
+    G -->|Pass| H[Place in Correct Container]
+    G -->|Fail| F
+    H --> I[Arrange on Serving Tray]
+    I --> J{Final Inspection}
+    J -->|Pass| K[Ring Bell for Waiter]
+    J -->|Fail| I
+    K --> L[Mark Docket as Complete]
+    L --> M[Place Docket in Completed Tray]
+    M --> N[End]
+
+    class B,E,F,G,H,I,J,L barista;
+    class K,M waiter;
+    class D supervisor;
+
+    subgraph Opening Procedures
+        B
+    end
+
+    subgraph Order Processing
+        C
+        D
+        E
+        F
+    end
+
+    subgraph Quality Control
+        G
+        J
+    end
+
+    subgraph Service
+        H
+        I
+        K
+    end
+
+    subgraph Administration
+        L
+        M
+    end
+    </div>
+</body>
+</html>
