@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph Initiation
+    A[Site Supervisor submits claim] --> B[Finance Clerk receives claim]
+    B:::FinanceClerk --> C[Finance Clerk enters claim in Swipey.co]
+    C:::FinanceClerk --> D[Finance Clerk verifies invoices line by line]
+    end
+
+    subgraph Verification
+    D:::FinanceClerk --> E[Finance Manager reviews claim in Swipey.co]
+    E:::FinanceManager --> F{Claim approved?}
+    F:::FinanceManager --> |No| G[Return to Site Supervisor for correction]
+    G --> A
+    F --> |Yes| H[Finance Manager approves in Swipey.co]
+    end
+
+    subgraph Processing
+    H:::FinanceManager --> I[Finance Clerk processes payment in online banking]
+    I:::FinanceClerk --> J[Finance Clerk records transaction in Xero]
+    J:::FinanceClerk --> K[Finance Clerk reconciles accounts in Xero]
+    end
+
+    subgraph Reporting
+    K:::FinanceClerk --> L[Finance Manager generates report in Xero]
+    L:::FinanceManager --> M[CFO reviews report]
+    M:::CFO --> N{Any issues?}
+    N:::CFO --> |Yes| O[CFO requests investigation]
+    O --> P[Finance Manager investigates]
+    P:::FinanceManager --> Q[Finance Manager reports findings to CFO]
+    Q --> M
+    N --> |No| R[Process complete]
+    end
+    </div>
+</body>
+</html>
