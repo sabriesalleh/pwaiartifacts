@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph Initiation
+    A[Start] --> B[Site Supervisor submits claim in Swipey.co]
+    B --> C[Finance Clerk receives notification]
+    end
+
+    subgraph Verification
+    C --> D{Finance Clerk verifies claim details}
+    D -->|Invalid| E[Return to Site Supervisor for correction]
+    E --> B
+    D -->|Valid| F[Finance Clerk checks line-by-line invoices]
+    end
+
+    subgraph Processing
+    F --> G[Finance Clerk processes claim in Xero]
+    G --> H[Finance Clerk reconciles in Xero]
+    H --> I[Finance Clerk prepares payment in online banking]
+    end
+
+    subgraph Approval
+    I --> J{Finance Manager reviews and approves}
+    J -->|Rejected| K[Return to Finance Clerk for correction]
+    K --> G
+    J -->|Approved| L[Finance Manager authorizes payment]
+    end
+
+    subgraph Payment
+    L --> M[Finance Clerk initiates payment via online banking]
+    M --> N[Finance Clerk updates status in Swipey.co]
+    end
+
+    subgraph Reporting
+    N --> O[Finance Manager generates reports]
+    O --> P[CFO reviews reports]
+    P --> Q{CFO decision}
+    Q -->|Action needed| R[CFO provides feedback]
+    R --> S[Finance Manager implements changes]
+    Q -->|No action| T[End]
+    S --> T
+    end
+
+    class C,D,E,F,G,H,I,K,M,N FinanceClerk;
+    class J,L,O,S FinanceManager;
+    class P,Q,R CFO;
+    </div>
+</body>
+</html>
