@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        flowchart LR
+    classDef waiter fill:#87CEEB,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef barista fill:#98FB98,stroke:#333,stroke-width:2px;
+
+    subgraph Preparation
+        direction TB
+        P[Preparation]:::barista
+        P --> P1["• Check mise en place checklist
+        • Clean and sanitize all equipment
+        • Stock ingredients and supplies
+        • Prepare ice and garnishes
+        • Calibrate measurement tools
+        • Review daily specials
+        • Check SOP book availability"]
+    end
+
+    subgraph OrderReception
+        direction TB
+        O[Order Reception]:::waiter
+        O --> O1["• Monitor Storehub Docket Printer
+        • Collect printed order dockets
+        • Organize dockets by priority
+        • Communicate special requests to barista
+        • Clarify any order discrepancies"]
+    end
+
+    subgraph DrinkPreparation
+        direction TB
+        D[Drink Preparation]:::barista
+        D --> D1["• Review SOP book for each drink
+        • Measure ingredients precisely
+        • Use appropriate tools (blender, freezer, chiller)
+        • Follow correct mixing techniques
+        • Adhere to 5-minute preparation time
+        • Taste-test drinks for quality
+        • Prepare garnishes as needed"]
+    end
+
+    subgraph QualityCheck
+        direction TB
+        Q[Quality Check]:::supervisor
+        Q --> Q1["• Compare drink to reference pictures
+        • Check presentation and garnish
+        • Verify temperature and consistency
+        • Ensure correct glassware is used
+        • Taste-test random samples
+        • Address any quality issues immediately"]
+    end
+
+    subgraph Serving
+        direction TB
+        S[Serving]:::barista
+        S --> S1["• Place drink in correct glass/cup/mug
+        • Add final garnishes
+        • Arrange drinks on serving tray
+        • Ensure tray is balanced and secure
+        • Ring bell to signal order completion
+        • Provide any special instructions to waiter"]
+    end
+
+    subgraph OrderCompletion
+        direction TB
+        C[Order Completion]:::waiter
+        C --> C1["• Collect tray from beverage station
+        • Double-check order accuracy
+        • Serve drinks to customers promptly
+        • Mark completed items on docket
+        • Place completed docket in basket
+        • Record any customer feedback"]
+    end
+
+    Preparation --> OrderReception --> DrinkPreparation --> QualityCheck --> Serving --> OrderCompletion
+    </div>
+</body>
+</html>
