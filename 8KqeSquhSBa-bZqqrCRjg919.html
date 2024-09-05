@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph "Request Phase"
+        A[Site Supervisor submits petty cash form] --> B[Finance Clerk receives request]
+    end
+
+    subgraph "Verification Phase"
+        B:::FinanceClerk --> C[Finance Clerk logs into Swipey.co]
+        C:::FinanceClerk --> D[Finance Clerk reviews each invoice line by line]
+        D:::FinanceClerk --> E{All invoices correct?}
+        E:::FinanceClerk --> |No| F[Finance Clerk requests corrections from Site Supervisor]
+        F:::FinanceClerk --> A
+        E:::FinanceClerk --> |Yes| G[Finance Clerk submits for approval in Swipey.co]
+    end
+
+    subgraph "Approval Phase"
+        G:::FinanceClerk --> H[Finance Manager reviews request in Swipey.co]
+        H:::FinanceManager --> I{Finance Manager approves?}
+        I:::FinanceManager --> |No| J[Finance Manager requests clarification]
+        J:::FinanceManager --> D
+        I:::FinanceManager --> |Yes| K[Finance Manager approves in Swipey.co]
+    end
+
+    subgraph "Payment Phase"
+        K:::FinanceManager --> L[Finance Clerk logs into Maybank online banking]
+        L:::FinanceClerk --> M[Finance Clerk initiates payment]
+        M:::FinanceClerk --> N[Finance Manager authorizes payment in Maybank]
+    end
+
+    subgraph "Reconciliation Phase"
+        N:::FinanceManager --> O[Finance Clerk logs into Xero]
+        O:::FinanceClerk --> P[Finance Clerk reconciles transaction in Xero]
+        P:::FinanceClerk --> Q[Finance Clerk generates monthly report]
+    end
+
+    subgraph "Review Phase"
+        Q:::FinanceClerk --> R[CFO reviews monthly report]
+        R:::CFO --> S{CFO approves report?}
+        S:::CFO --> |No| T[CFO requests audit]
+        T:::CFO --> U[Finance Manager conducts audit]
+        U:::FinanceManager --> R
+        S:::CFO --> |Yes| V[Process complete]
+    end
+
+    </div>
+</body>
+</html>
