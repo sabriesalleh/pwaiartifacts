@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#ADD8E6,stroke:#000,stroke-width:2px;
+    classDef FinanceManager fill:#90EE90,stroke:#000,stroke-width:2px;
+    classDef CFO fill:#FFB6C1,stroke:#000,stroke-width:2px;
+
+    subgraph Initiation
+    A[Site Supervisor initiates claim] --> B[Finance Clerk receives claim]
+    end
+
+    subgraph Verification
+    B -->|Using Swipey.co| C[Finance Clerk verifies claim details]
+    C --> D{All details correct?}
+    D -->|No| E[Request additional information]
+    E --> C
+    D -->|Yes| F[Finance Clerk checks invoices line by line]
+    end
+
+    subgraph Processing
+    F -->|Using Xero| G[Finance Clerk records claim in accounting software]
+    G --> H[Finance Clerk prepares payment]
+    H -->|Using Maybank online banking| I[Finance Clerk initiates payment]
+    end
+
+    subgraph Approval
+    I --> J[Finance Manager reviews claim and payment]
+    J --> K{Approve?}
+    K -->|No| L[Return to Finance Clerk for correction]
+    L --> C
+    K -->|Yes| M[Finance Manager authorizes payment]
+    end
+
+    subgraph Execution
+    M --> N[Finance Clerk executes payment]
+    N --> O[Finance Clerk updates records in Xero]
+    O --> P[Finance Clerk performs reconciliation in Xero]
+    end
+
+    subgraph Reporting
+    P --> Q[Finance Manager generates reports]
+    Q --> R[CFO reviews reports]
+    R --> S{Any issues?}
+    S -->|Yes| T[CFO requests investigation]
+    T --> C
+    S -->|No| U[Process complete]
+    end
+
+    class B,C,E,F,G,H,I,N,O,P FinanceClerk;
+    class J,K,L,M,Q FinanceManager;
+    class R,S,T CFO;
+    </div>
+</body>
+</html>
