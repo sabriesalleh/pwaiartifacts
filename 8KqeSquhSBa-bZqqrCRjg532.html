@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    subgraph "Request Phase"
+    A[Site Supervisor submits petty cash form] --> B[Finance Clerk receives request]
+    end
+
+    subgraph "Verification Phase"
+    B -->|Using Swipey.co| C[Finance Clerk verifies claim details]
+    C --> D[Finance Clerk checks line-by-line invoices]
+    D --> E{All correct?}
+    E -->|No| F[Finance Clerk requests corrections]
+    F --> B
+    E -->|Yes| G[Finance Clerk submits for approval]
+    end
+
+    subgraph "Approval Phase"
+    G --> H[Finance Manager reviews claim]
+    H --> I{Approved?}
+    I -->|No| J[Finance Manager requests clarification]
+    J --> C
+    I -->|Yes| K[Finance Manager authorizes payment]
+    end
+
+    subgraph "Payment Phase"
+    K --> L[Finance Clerk processes payment via Maybank]
+    L --> M[Finance Clerk records transaction in Xero]
+    M --> N[Finance Clerk performs reconciliation in Xero]
+    end
+
+    subgraph "Reporting Phase"
+    N --> O[Finance Manager generates monthly report]
+    O --> P[CFO reviews monthly report]
+    P --> Q{Any issues?}
+    Q -->|Yes| R[CFO requests investigation]
+    R --> S[Finance Manager investigates]
+    S --> O
+    Q -->|No| T[CFO approves report]
+    end
+
+    class B,C,D,F,L,M,N FinanceClerk;
+    class G,H,I,J,K,O,S FinanceManager;
+    class P,Q,R,T CFO;
+    </div>
+</body>
+</html>
