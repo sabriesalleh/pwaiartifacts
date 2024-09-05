@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#87CEFA,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#90EE90,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#FFA07A,stroke:#333,stroke-width:2px;
+
+    subgraph "Phase 1: Request Submission"
+        A[Site Supervisor submits petty cash form request] --> B[Finance Clerk receives request in Swipey.co]
+    end
+
+    subgraph "Phase 2: Initial Verification"
+        B --> C[Finance Clerk verifies request details]
+        C --> D[Finance Clerk checks line-by-line invoices]
+    end
+
+    subgraph "Phase 3: Processing"
+        D --> E[Finance Clerk processes claim in Xero]
+        E --> F[Finance Clerk reconciles in Xero]
+    end
+
+    subgraph "Phase 4: Manager Review"
+        F --> G[Finance Manager reviews claim]
+        G --> H{Is claim valid?}
+        H -->|No| I[Return to Finance Clerk for correction]
+        I --> C
+        H -->|Yes| J[Finance Manager approves claim]
+    end
+
+    subgraph "Phase 5: Payment"
+        J --> K[Finance Clerk initiates payment in Maybank online banking]
+        K --> L[Finance Manager authorizes payment]
+    end
+
+    subgraph "Phase 6: Monthly Review"
+        L --> M[CFO reviews monthly petty cash report]
+        M --> N[CFO provides feedback and decisions]
+    end
+
+    B:::FinanceClerk
+    C:::FinanceClerk
+    D:::FinanceClerk
+    E:::FinanceClerk
+    F:::FinanceClerk
+    G:::FinanceManager
+    H:::FinanceManager
+    I:::FinanceClerk
+    J:::FinanceManager
+    K:::FinanceClerk
+    L:::FinanceManager
+    M:::CFO
+    N:::CFO
+    </div>
+</body>
+</html>
