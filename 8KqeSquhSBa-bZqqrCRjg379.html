@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#87CEEB,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef barista fill:#98FB98,stroke:#333,stroke-width:2px;
+
+    A[Start] --> B[Preparation Phase]
+    B --> |Barista| C[Prepare mise en place]
+    C --> |Barista| D[Check & clean equipment]
+    D --> E[Order Reception Phase]
+    E --> |Waiter| F[Receive order via Storehub Docket Printer]
+    F --> G[Drink Preparation Phase]
+    G --> |Barista| H[Review SOP book for drink recipes]
+    H --> |Barista| I[Measure ingredients using beverage measurement cups]
+    I --> |Barista| J[Use appropriate tools blender/freezer/chiller]
+    J --> |Barista| K[Prepare drink within 5 minutes]
+    K --> L[Quality Check Phase]
+    L --> |Barista| M[Compare drink to reference pictures]
+    M --> |Supervisor| N[Verify drink quality and appearance]
+    N --> O[Serving Phase]
+    O --> |Barista| P[Place drink in correct glass/cup/mug]
+    P --> |Barista| Q[Arrange drink on serving tray]
+    Q --> |Barista| R[Ring bell for waiter]
+    R --> |Waiter| S[Collect tray and serve drink]
+    S --> T[Order Completion Phase]
+    T --> |Waiter| U[Mark order as complete on docket]
+    U --> |Waiter| V[Place completed docket in basket]
+    V --> W[End]
+
+    class C,D,H,I,J,K,M,P,Q,R barista;
+    class F,S,U,V waiter;
+    class N supervisor;
+    </div>
+</body>
+</html>
