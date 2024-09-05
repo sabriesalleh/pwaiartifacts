@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef FinanceClerk fill:#AFE1AF,stroke:#333,stroke-width:2px;
+    classDef FinanceManager fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef CFO fill:#87CEFA,stroke:#333,stroke-width:2px;
+
+    A[Start] --> B[Site Supervisor: Submit petty cash request]
+    B --> C[Finance Clerk: Receive and log request in Swipey.co]:::FinanceClerk
+    C --> D[Finance Clerk: Verify invoices line by line]:::FinanceClerk
+    D --> E{All invoices correct?}
+    E -->|No| F[Finance Clerk: Request corrections from Site Supervisor]:::FinanceClerk
+    F --> B
+    E -->|Yes| G[Finance Clerk: Process claim in Xero]:::FinanceClerk
+    G --> H[Finance Clerk: Reconcile in Xero]:::FinanceClerk
+    H --> I[Finance Manager: Review and verify claim]:::FinanceManager
+    I --> J{Claim approved?}
+    J -->|No| K[Finance Manager: Request corrections or clarification]:::FinanceManager
+    K --> G
+    J -->|Yes| L[Finance Manager: Authorize payment in Maybank online banking]:::FinanceManager
+    L --> M[Finance Clerk: Execute payment]:::FinanceClerk
+    M --> N[Finance Clerk: Update records in Swipey.co and Xero]:::FinanceClerk
+    N --> O[Finance Manager: Generate monthly report]:::FinanceManager
+    O --> P[CFO: Review monthly report]:::CFO
+    P --> Q{Any issues?}
+    Q -->|Yes| R[CFO: Request investigation or audit]:::CFO
+    R --> S[Finance Manager: Investigate and report back]:::FinanceManager
+    S --> P
+    Q -->|No| T[End]
+    </div>
+</body>
+</html>
