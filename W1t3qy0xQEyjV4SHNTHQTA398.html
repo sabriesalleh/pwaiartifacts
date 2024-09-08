@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px'}}}%%
+
+flowchart LR
+    classDef receptionist fill:#FFB3BA,stroke:#333,stroke-width:2px
+    classDef groomer fill:#BAFFC9,stroke:#333,stroke-width:2px
+    classDef branchHead fill:#BAE1FF,stroke:#333,stroke-width:2px
+
+    subgraph "1. Customer Reception"
+        direction TB
+        A[Receptionist]:::receptionist
+        A --> |"• Greet customer and pet warmly<br>• Assist in menu selection (Normal/Special/Spa Wash)<br>• Be helpful during selection process<br>• Book appointment in CRM<br>• Collect pet information<br>• Have customer sign waiver form<br>• Use WhatsApp for communication"| B
+    end
+
+    subgraph "2. Pre-Grooming Assessment"
+        direction TB
+        B[Groomer]:::groomer
+        B --> |"• Perform initial pet health check<br>• Check for fleas or other parasites<br>• Note any special requirements<br>• Always be kind to pets<br>• Assess pet's stress level"| C
+    end
+
+    subgraph "3. Preparation"
+        direction TB
+        C[Groomer]:::groomer
+        C --> |"• Place pet in stress-free environment<br>• Prepare grooming tools and equipment<br>• Measure precise portions of shampoo/products<br>• Ensure all safety equipment is ready<br>• Double-check grooming package details"| D
+    end
+
+    subgraph "4. Grooming Process"
+        direction TB
+        D[Groomer]:::groomer
+        D --> |"• Bathe pet using safety equipment<br>• Apply treatments as per selected package<br>• Use special portioning for shampoo and perishables<br>• Dry pet using appropriate method/machine<br>• Brush and style as needed<br>• Continuously monitor pet's comfort"| E
+    end
+
+    subgraph "5. Post-Grooming"
+        direction TB
+        E[Groomer]:::groomer
+        E --> |"• Perform final check on pet<br>• Place pet in clean, comfortable holding area<br>• Clean and sanitize grooming area<br>• Update grooming notes in CRM<br>• Prepare before and after photos"| F
+    end
+
+    subgraph "6. Customer Handover"
+        direction TB
+        F[Receptionist]:::receptionist
+        F --> |"• Notify customer via WhatsApp<br>• Review grooming results with customer<br>• Process payment using cash register<br>• Schedule next appointment<br>• Request Google review (aim for 5/5)<br>• Provide care instructions"| G
+    end
+
+    subgraph "7. Follow-up"
+        direction TB
+        G[Branch Head]:::branchHead
+        G --> |"• Review customer feedback<br>• Analyze KPIs (Google reviews, repeat sales)<br>• Address any issues or complaints<br>• Plan staff training if needed<br>• Ensure inventory is well-stocked<br>• Monitor overall salon performance"| H
+    end
+
+    H[End of Process]
+    </div>
+</body>
+</html>
