@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph LR
+    classDef waiter fill:#FFB3BA,stroke:#333,stroke-width:2px
+    classDef supervisor fill:#BAFFC9,stroke:#333,stroke-width:2px
+    classDef barista fill:#BAE1FF,stroke:#333,stroke-width:2px
+
+    1[1. Preparation]:::barista -->2[2. Order Reception]:::barista
+    2 -->3[3. Drink Production]:::barista
+    3 -->4[4. Quality Check]:::barista
+    4 -->5[5. Serving]:::waiter
+    5 -->6[6. Order Completion]:::barista
+
+    1 --- PrepChecklist[
+        • Set up workstation
+        • Check inventory
+        • Prepare mise en place
+        • Clean and sanitize tools
+        • Review daily specials
+        • Calibrate equipment
+    ]
+
+    2 --- OrderChecklist[
+        • Monitor Storehub Docket Printer
+        • Receive order docket
+        • Review order details
+        • Clarify any uncertainties
+        • Prioritize orders
+    ]
+
+    3 --- ProductionChecklist[
+        • Consult SOP book for recipes
+        • Measure ingredients precisely
+        • Use appropriate tools (blender, etc.)
+        • Follow preparation steps
+        • Monitor preparation time
+        • Ensure proper temperature
+    ]
+
+    4 --- QualityChecklist[
+        • Compare drink with reference pictures
+        • Check presentation and garnish
+        • Verify correct glassware/cup
+        • Taste test (if applicable)
+        • Make adjustments if necessary
+    ]
+
+    5 --- ServingChecklist[
+        • Place drinks on serving tray
+        • Ensure order completeness
+        • Ring bell for waiter
+        • Brief waiter on order details
+        • Handle with care during transport
+    ]
+
+    6 --- CompletionChecklist[
+        • Mark completed items on docket
+        • File completed docket in basket
+        • Clean up workstation
+        • Restock ingredients if needed
+        • Prepare for next order
+    ]
+
+    SupervisorChecks[Supervisor: Periodic Quality Sampling]:::supervisor
+    SupervisorChecks -.-> 4
+
+    classDef checklist fill:#f9f9f9,stroke:#333,stroke-width:1px
+    class PrepChecklist,OrderChecklist,ProductionChecklist,QualityChecklist,ServingChecklist,CompletionChecklist checklist
+    </div>
+</body>
+</html>
