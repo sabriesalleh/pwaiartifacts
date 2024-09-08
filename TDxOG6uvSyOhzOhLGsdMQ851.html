@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        flowchart TB
+    subgraph "1. Strategy & Planning"
+        A1["Content Strategy Development"]
+        A2["Brand Message Definition"]
+        A3["Social Media Strategy Planning"]
+    end
+    subgraph "2. Content Creation"
+        B1["Content Creation in CMS"]
+        B2["Content Adaptation for Social Media"]
+        B3["Content Review and Approval"]
+    end
+    subgraph "3. Asset Management"
+        C1["Asset Organization in Bynder"]
+        C2["Asset Access and Utilization"]
+    end
+    subgraph "4. Distribution"
+        D1["Website Content Publication"]
+        D2["Social Media Post Scheduling"]
+    end
+    subgraph "5. Engagement & Monitoring"
+        E1["Social Media Engagement"]
+        E2["Content Performance Monitoring"]
+        E3["Analytics Review and Strategy Adjustment"]
+    end
+
+    A1 --> A2 --> A3 --> B1 --> B2 --> B3 --> C1 --> C2 --> D1 --> D2 --> E1 --> E2 --> E3
+
+    classDef contentStrategist fill:#FFA07A,stroke:#333,stroke-width:2px;
+    classDef socialMediaExecutive fill:#87CEFA,stroke:#333,stroke-width:2px;
+    classDef businessOwner fill:#98FB98,stroke:#333,stroke-width:2px;
+
+    class A1,B1,C1,D1,E2 contentStrategist;
+    class A3,B2,C2,D2,E1 socialMediaExecutive;
+    class A2,B3,E3 businessOwner;
+
+    %% Checklists
+    A1---"Content Strategist:<br>• Define content goals and KPIs<br>• Identify target audience personas<br>• Conduct competitor analysis<br>• Determine content types and formats<br>• Create content calendar<br>• Align with overall marketing strategy<br>• Research industry trends"
+    A2---"Business Owner:<br>• Articulate brand values and mission<br>• Define unique selling proposition<br>• Establish brand voice and tone<br>• Create messaging framework<br>• Ensure business alignment<br>• Develop brand guidelines<br>• Approve brand strategy"
+    A3---"Social Media Executive:<br>• Research platform-specific trends<br>• Identify key dates and events<br>• Plan content mix for each platform<br>• Align social calendar with content strategy<br>• Define posting frequency and best times<br>• Develop engagement and community-building strategies<br>• Set up social listening tools"
+    B1---"Content Strategist:<br>• Conduct in-depth topic research<br>• Write engaging headlines and meta descriptions<br>• Create original, valuable content<br>• Implement SEO best practices<br>• Add relevant visuals and multimedia<br>• Proofread and edit for clarity<br>• Format for readability and accessibility<br>• Use WordPress to manage content"
+    B2---"Social Media Executive:<br>• Tailor content for each social platform<br>• Create platform-specific visuals<br>• Write engaging captions and CTAs<br>• Ensure brand consistency across platforms<br>• Prepare various content formats (images, videos, stories)<br>• Optimize for platform algorithms<br>• Use Hootsuite for content adaptation"
+    B3---"Business Owner:<br>• Review content for brand alignment<br>• Check quality standards and accuracy<br>• Verify legal compliance and copyrights<br>• Provide constructive feedback<br>• Give final approval for publication<br>• Ensure content meets business objectives"
+    C1---"Content Strategist:<br>• Upload assets to Bynder<br>• Categorize assets by type and usage<br>• Add metadata, tags, and descriptions<br>• Set access permissions for team members<br>• Create themed asset collections<br>• Implement version control system<br>• Establish clear naming conventions"
+    C2---"Social Media Executive:<br>• Access approved assets from Bynder<br>• Ensure proper usage of brand assets<br>• Maintain visual consistency across channels<br>• Track asset performance and engagement<br>• Report any asset issues or gaps<br>• Suggest new asset needs based on trends<br>• Collaborate with design team for custom assets"
+    D1---"Content Strategist:<br>• Format and optimize content in WordPress<br>• Implement on-page SEO techniques<br>• Schedule or publish content at optimal times<br>• Set up internal linking structure<br>• Implement performance tracking (e.g., Google Analytics)<br>• Ensure mobile responsiveness<br>• Test functionality across devices and browsers"
+    D2---"Social Media Executive:<br>• Schedule posts using Hootsuite<br>• Optimize posting times for each platform<br>• Ensure correct hashtags and @mentions<br>• Set up UTM parameters for tracking<br>• Preview all scheduled posts for accuracy<br>• Plan for real-time engagement opportunities<br>• Set up automated performance reports"
+    E1---"Social Media Executive:<br>• Monitor all social channels regularly<br>• Respond promptly to comments and messages<br>• Engage with audience through likes, shares, and comments<br>• Address customer inquiries and feedback<br>• Report and escalate potential issues<br>• Encourage and curate user-generated content<br>• Participate in relevant trending topics and conversations"
+    E2---"Content Strategist:<br>• Track key content performance metrics<br>• Analyze user behavior and engagement patterns<br>• Identify top-performing content pieces<br>• Monitor SEO rankings and organic traffic<br>• Generate comprehensive performance reports<br>• Propose content optimizations based on data<br>• Conduct A/B tests for continuous improvement"
+    E3---"Business Owner:<br>• Review overall marketing performance<br>• Assess consistency of brand messaging<br>• Analyze marketing ROI and budget allocation<br>• Identify areas for improvement and growth<br>• Make data-driven strategic decisions<br>• Provide feedback to marketing team<br>• Ensure alignment with business goals and vision"
+    </div>
+</body>
+</html>
