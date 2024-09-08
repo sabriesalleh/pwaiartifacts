@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    subgraph "Phase 1: Strategy & Planning"
+        A[Content Strategist: Develop Content Strategy]
+        B[Business Owner: Define Brand Message]
+        C[Social Media Executive: Plan Social Media Calendar]
+    end
+
+    subgraph "Phase 2: Content Creation"
+        D[Content Strategist: Create Content in CMS]
+        E[Social Media Executive: Adapt Content for Social]
+        F[Business Owner: Review and Approve]
+    end
+
+    subgraph "Phase 3: Asset Management"
+        G[Content Strategist: Organize Assets in BAM]
+        H[Social Media Executive: Access Approved Assets]
+    end
+
+    subgraph "Phase 4: Distribution"
+        I[Content Strategist: Publish Content on Website]
+        J[Social Media Executive: Schedule Posts in SMMP]
+    end
+
+    subgraph "Phase 5: Engagement & Monitoring"
+        K[Social Media Executive: Respond to Comments]
+        L[Content Strategist: Monitor Content Performance]
+        M[Business Owner: Review Analytics]
+    end
+
+    A -->|CMS: WordPress| D
+    B --> F
+    C -->|SMMP: Hootsuite| E
+    D --> G
+    E --> H
+    F --> G
+    G -->|BAM: Bynder| H
+    H --> J
+    I -->|KPI: Consistent Message| K
+    J -->|KPI: Brand Recall| K
+    K --> L
+    L --> M
+
+    style A fill:#FFA07A
+    style B fill:#98FB98
+    style C fill:#87CEFA
+    style D fill:#FFA07A
+    style E fill:#87CEFA
+    style F fill:#98FB98
+    style G fill:#FFA07A
+    style H fill:#87CEFA
+    style I fill:#FFA07A
+    style J fill:#87CEFA
+    style K fill:#87CEFA
+    style L fill:#FFA07A
+    style M fill:#98FB98
+    </div>
+</body>
+</html>
