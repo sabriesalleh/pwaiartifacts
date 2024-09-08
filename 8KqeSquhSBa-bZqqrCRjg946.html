@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef barista fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    A[Opening Preparation] -->|Barista| B[Mise en Place]
+    B -->|Barista| C[Receive Order Docket]
+    C -->|Barista| D[Read and Verify Order]
+    D -->|Barista| E[Prepare Drinks as per SOP]
+    E -->|Barista| F[Quality Check]
+    F -->|Barista| G[Serve on Tray]
+    G -->|Barista| H[Call Waiter]
+    H -->|Waiter| I[Deliver to Customer]
+    I -->|Waiter| J[Mark Order as Complete]
+    J -->|Supervisor| K[Review and Quality Control]
+
+    subgraph "Phase 1: Preparation"
+        A
+        B
+    end
+
+    subgraph "Phase 2: Order Processing"
+        C
+        D
+    end
+
+    subgraph "Phase 3: Drink Preparation"
+        E
+        F
+    end
+
+    subgraph "Phase 4: Service"
+        G
+        H
+        I
+    end
+
+    subgraph "Phase 5: Completion"
+        J
+        K
+    end
+
+    A:::barista
+    B:::barista
+    C:::barista
+    D:::barista
+    E:::barista
+    F:::barista
+    G:::barista
+    H:::barista
+    I:::waiter
+    J:::waiter
+    K:::supervisor
+
+    %% Tools and KPIs
+    A ---> |"Tools: Freezer, Chiller, Containers, Jars"| B
+    E ---> |"Tools: Blender, Measurement Cups, SOP Book"| F
+    F ---> |"KPI: Drinks completed in <5 minutes"| G
+    G ---> |"Tools: Cups and Cutlery"| H
+    K ---> |"KPI: Handle 50 orders at once, All drinks as per spec"| A
+
+    %% Special Instructions
+    D -.-> |"If unsure, consult supervisor"| E
+    F -.-> |"Compare with pictures on freezer top"| G
+    E -.-> |"Ensure correct timing"| F
+    </div>
+</body>
+</html>
