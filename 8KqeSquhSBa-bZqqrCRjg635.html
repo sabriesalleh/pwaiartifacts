@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef supervisor fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef barista fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    A[Start of Shift] --> B[Prepare Mise en Place]
+    B --> C[Check and Organize Tools]
+    C --> D[Review SOPs and Recipes]
+    D --> E[Receive Order Docket]
+    E --> F{Is Order Clear?}
+    F -->|Yes| G[Prepare Drinks as per SOP]
+    F -->|No| H[Consult Supervisor]
+    H --> G
+    G --> I[Measure Ingredients]
+    I --> J[Use Appropriate Equipment]
+    J --> K[Monitor Preparation Time]
+    K --> L[Select Correct Glassware]
+    L --> M[Garnish and Present]
+    M --> N[Compare with Reference Images]
+    N --> O{Meets Standards?}
+    O -->|Yes| P[Place on Serving Tray]
+    O -->|No| Q[Adjust or Remake]
+    Q --> N
+    P --> R[Ring Bell for Waiter]
+    R --> S[Mark Order as Complete]
+    S --> T[Place Completed Docket in Basket]
+    T --> U[Clean and Reset Station]
+    U --> E
+
+    class B,C,D,G,I,J,K,L,M,N,Q,U barista;
+    class E,P,R,S,T waiter;
+    class F,H supervisor;
+
+    subgraph "Tools Used"
+        direction TB
+        Z1[Blender]
+        Z2[Freezer]
+        Z3[Chiller]
+        Z4[Storehub Docket Printer]
+        Z5[Beverage Measurement Cups]
+        Z6[Containers]
+        Z7[Jars]
+        Z8[Cups and Cutlery]
+    end
+
+    subgraph "KPIs"
+        direction TB
+        Y1[Drinks completed in <5 minutes]
+        Y2[Handle 50 orders at once]
+        Y3[All drinks as per specification]
+    end
+    </div>
+</body>
+</html>
