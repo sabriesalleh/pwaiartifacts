@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef waiter fill:#FFB3BA,stroke:#333,stroke-width:2px
+    classDef supervisor fill:#BAFFC9,stroke:#333,stroke-width:2px
+    classDef barista fill:#BAE1FF,stroke:#333,stroke-width:2px
+
+    A[Start] --> B[Prepare Mise en Place]
+    B --> C[Receive Order Docket]
+    C --> D{Is order clear?}
+    D -->|Yes| E[Read and Understand Order]
+    D -->|No| F[Consult Supervisor]
+    F --> E
+    E --> G[Refer to SOP Book]
+    G --> H[Prepare Ingredients]
+    H --> I[Use Correct Measurement Tools]
+    I --> J[Blend/Mix/Brew as Required]
+    J --> K[Monitor Preparation Time]
+    K --> L[Use Correct Glassware/Cup]
+    L --> M[Compare with Reference Pictures]
+    M --> N{Matches Reference?}
+    N -->|Yes| O[Place on Serving Tray]
+    N -->|No| P[Adjust as Needed]
+    P --> M
+    O --> Q[Ring Bell for Waiter]
+    Q --> R[Check and Tick Off Orders]
+    R --> S[Place Completed Docket in Basket]
+    S --> T[End]
+
+    class B,H,I,J,K,L,M,O,P barista
+    class C,Q,R,S waiter
+    class F supervisor
+
+    subgraph Tools
+        U[Blender]
+        V[Freezer]
+        W[Chiller]
+        X[Storehub Docket Printer]
+        Y[Beverage Measurement Cups]
+        Z[Containers and Jars]
+        AA[Cups and Cutlery]
+    end
+
+    subgraph KPIs
+        BB[Complete Drinks < 5 mins]
+        CC[Handle 50 Orders/Person]
+        DD[Serve According to Spec]
+    end
+    </div>
+</body>
+</html>
