@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph LR
+    classDef businessOwner fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef freelanceCopywriter fill:#BAFFC9,stroke:#333,stroke-width:2px;
+
+    1[1. Content Ideation]:::businessOwner -->|Cleve.ai| 2[2. Content Generation]:::freelanceCopywriter
+    2 --> 3[3. Content Editing and Refinement]:::freelanceCopywriter
+    3 --> 4[4. Content Storage]:::freelanceCopywriter
+    4 --> 5[5. Visual Content Creation]:::businessOwner
+    5 --> 6[6. Content Scheduling]:::businessOwner
+    6 --> 7[7. Content Publishing]:::businessOwner
+    7 --> 8[8. Performance Monitoring]:::businessOwner
+
+    1 -.- 1C[" • Capture trigger thoughts in Cleve.ai
+    • Review trending topics and industry news
+    • Brainstorm content ideas aligned with brand
+    • Set content goals for each platform
+    • Create content calendar in Pipefy"]
+
+    2 -.- 2C[" • Use Cleve.ai to generate initial content
+    • Create platform-specific copies (FB, Instagram, TikTok)
+    • Ensure 80% AI-generated, 20% human touch
+    • Generate TikTok script
+    • Review generated content for brand alignment"]
+
+    3 -.- 3C[" • Refine AI-generated content
+    • Adapt tone and voice for target audience
+    • Proofread and edit for grammar and clarity
+    • Optimize content for each platform
+    • Ensure compliance with platform guidelines"]
+
+    4 -.- 4C[" • Organize content in Google Drive
+    • Create separate folders for each platform
+    • Tag content for easy searching
+    • Maintain version control
+    • Update content bank regularly"]
+
+    5 -.- 5C[" • Source relevant images from photographer
+    • Edit images to match brand aesthetics
+    • Create graphics in Canva for each post
+    • Ensure visuals complement written content
+    • Prepare TikTok video assets"]
+
+    6 -.- 6C[" • Use Pipefy to manage content workflow
+    • Schedule posts for LinkedIn and Facebook
+    • Plan TikTok video shoots and edits
+    • Align scheduling with optimal posting times
+    • Ensure even distribution across platforms"]
+
+    7 -.- 7C[" • Publish content on scheduled dates and times
+    • Monitor initial engagement and interactions
+    • Respond to early comments and messages
+    • Cross-promote content across platforms
+    • Shoot and edit TikTok videos using OpusClip"]
+
+    8 -.- 8C[" • Track engagement metrics (views, reach, likes)
+    • Analyze performance against KPIs
+    • Identify top-performing content
+    • Gather insights for future content creation
+    • Adjust strategy based on performance data"]
+
+    subgraph "Business Owner"
+        1
+        5
+        6
+        7
+        8
+    end
+
+    subgraph "Freelance Copywriter"
+        2
+        3
+        4
+    end
+    </div>
+</body>
+</html>
