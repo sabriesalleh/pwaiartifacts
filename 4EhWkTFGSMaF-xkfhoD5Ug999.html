@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'default', 'themeVariables': { 'primaryColor': '#bb9af7', 'edgeLabelBackground':'#2ac3de', 'tertiaryColor': '#ff757f'}}}%%
+flowchart TD
+    classDef businessOwner fill:#ff9e64,stroke:#333,stroke-width:2px;
+    classDef copywriter fill:#9ece6a,stroke:#333,stroke-width:2px;
+    classDef socialMedia fill:#7dcfff,stroke:#333,stroke-width:2px;
+
+    subgraph "1. Ideation & Planning"
+        A[1.1 Content Ideation]:::businessOwner
+        B[1.2 Content Strategy]:::businessOwner
+    end
+
+    subgraph "2. Content Creation"
+        C[2.1 AI-Assisted Writing]:::copywriter
+        D[2.2 Content Refinement]:::copywriter
+        E[2.3 Visual Content Creation]:::socialMedia
+    end
+
+    subgraph "3. Content Organization"
+        F[3.1 Content Storage]:::copywriter
+        G[3.2 Asset Management]:::socialMedia
+    end
+
+    subgraph "4. Distribution & Scheduling"
+        H[4.1 Content Scheduling]:::socialMedia
+        I[4.2 Content Publishing]:::socialMedia
+    end
+
+    subgraph "5. Monitoring & Optimization"
+        J[5.1 Performance Tracking]:::businessOwner
+        K[5.2 Content Optimization]:::businessOwner
+    end
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> K
+
+    A-->|"Checklist:
+    • Brainstorm content ideas
+    • Record trigger thoughts in Cleve.AI
+    • Align ideas with business goals
+    • Consider audience preferences"| A
+
+    B-->|"Checklist:
+    • Define content themes
+    • Set content calendar
+    • Assign tasks to team members
+    • Establish KPIs for each platform"| B
+
+    C-->|"Checklist:
+    • Use Cleve.AI for initial content generation
+    • Generate FB, Instagram, and TikTok copies
+    • Aim for 80% AI-generated content
+    • Ensure AI output matches brand voice"| C
+
+    D-->|"Checklist:
+    • Review and edit AI-generated content
+    • Tailor content for each platform
+    • Ensure content aligns with brand guidelines
+    • Proofread for grammar and clarity"| D
+
+    E-->|"Checklist:
+    • Use Canva for visual content creation
+    • Match visuals with copy from Copy Bank
+    • Create platform-specific visuals
+    • Ensure consistent brand aesthetics"| E
+
+    F-->|"Checklist:
+    • Organize content in Google Drive
+    • Create folder structure for easy access
+    • Label content by theme and platform
+    • Update Copy Bank regularly"| F
+
+    G-->|"Checklist:
+    • Organize visual assets in Google Drive
+    • Tag images for easy search
+    • Create collections for different themes
+    • Regularly update and clean asset library"| G
+
+    H-->|"Checklist:
+    • Use Pipefy for content scheduling
+    • Plan 2 posts/day for LinkedIn and Facebook
+    • Schedule 1 post/day for TikTok
+    • Ensure balanced content mix"| H
+
+    I-->|"Checklist:
+    • Monitor scheduled posts
+    • Ensure timely publication across platforms
+    • Verify post quality and formatting
+    • Address any publishing issues promptly"| I
+
+    J-->|"Checklist:
+    • Track engagement metrics daily
+    • Monitor views, reaches, and interactions
+    • Compare performance against KPIs
+    • Identify top-performing content"| J
+
+    K-->|"Checklist:
+    • Analyze performance data
+    • Identify improvement opportunities
+    • Adjust content strategy as needed
+    • Share insights with team for future planning"| K
+
+    </div>
+</body>
+</html>
