@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef businessOwner fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef copywriter fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef socialMedia fill:#BAE1FF,stroke:#333,stroke-width:2px;
+
+    A[Start] --> B[Idea Generation]
+    B -->|Use Cleve.AI| C[Content Creation]
+    C --> D[Content Refinement]
+    D --> E[Visual Content Creation]
+    E --> F[Content Scheduling]
+    F --> G[Content Distribution]
+    G --> H[Performance Monitoring]
+    H --> I[End]
+
+    subgraph "Phase 1: Ideation"
+        B
+    end
+
+    subgraph "Phase 2: Content Creation"
+        C
+        D
+    end
+
+    subgraph "Phase 3: Visual Content"
+        E
+    end
+
+    subgraph "Phase 4: Scheduling"
+        F
+    end
+
+    subgraph "Phase 5: Distribution"
+        G
+    end
+
+    subgraph "Phase 6: Analytics"
+        H
+    end
+
+    B1[Business Owner: Trigger thoughts]:::businessOwner
+    B2[Use Cleve.AI for notes]
+    B1 --> B2
+    B2 --> C
+
+    C1[Copywriter: Generate content]:::copywriter
+    C2[Use Cleve.AI for 80% generation]
+    C3[Create FB, Instagram, TikTok copies]
+    C1 --> C2 --> C3
+
+    D1[Copywriter: Edit and refine]:::copywriter
+    D2[Adapt for audience]
+    D3[Store in Copy Bank]
+    D1 --> D2 --> D3
+
+    E1[Social Media VA: Match visuals]:::socialMedia
+    E2[Use Canva for design]
+    E3[Select from Photo Bank]
+    E1 --> E2 --> E3
+
+    F1[Social Media VA: Schedule posts]:::socialMedia
+    F2[Use Pipefy for process management]
+    F3[Schedule for LinkedIn and Facebook]
+    F1 --> F2 --> F3
+
+    G1[Social Media VA: Distribute content]:::socialMedia
+    G2[Post on LinkedIn and Facebook]
+    G3[Shoot and edit TikTok video]
+    G4[Post on TikTok]
+    G1 --> G2
+    G1 --> G3 --> G4
+
+    H1[Business Owner: Monitor KPIs]:::businessOwner
+    H2[Track views and reach]
+    H3[Analyze engagement]
+    H1 --> H2 --> H3
+
+    %% KPI Targets
+    K1[KPI: 2 posts/day on LinkedIn & Facebook]
+    K2[KPI: 1 post/day on TikTok]
+    K3[KPI: 10k views on TikTok]
+    K4[KPI: 10k reach on Facebook]
+    K5[KPI: 1k reach on LinkedIn]
+
+    H --> K1
+    H --> K2
+    H --> K3
+    H --> K4
+    H --> K5
+
+    </div>
+</body>
+</html>
