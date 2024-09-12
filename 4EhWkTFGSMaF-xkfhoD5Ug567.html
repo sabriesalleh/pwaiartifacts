@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef businessOwner fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef freelanceCopywriter fill:#BAFFC9,stroke:#333,stroke-width:2px;
+
+    A[Content Ideation] -->|Cleve.ai| B[Content Generation]
+    B --> C[Content Editing and Refinement]
+    C --> D[Content Storage]
+    D --> E[Visual Content Creation]
+    E --> F[Content Scheduling]
+    F --> G[Content Publishing]
+    G --> H[Performance Monitoring]
+
+    A:::businessOwner
+    B:::freelanceCopywriter
+    C:::freelanceCopywriter
+    D:::freelanceCopywriter
+    E:::businessOwner
+    F:::businessOwner
+    G:::businessOwner
+    H:::businessOwner
+
+    subgraph "Phase 1: Ideation and Generation"
+        A -->|"KPI: Daily idea generation"| B
+        A -->|"Tip: Capture all trigger thoughts"| B
+    end
+
+    subgraph "Phase 2: Refinement and Storage"
+        C -->|"Tool: Google Drive"| D
+        C -->|"KPI: 80% AI-generated, 20% human-refined"| D
+    end
+
+    subgraph "Phase 3: Visual Creation and Scheduling"
+        E -->|"Tool: Canva"| F
+        E -->|"Tip: Match visuals with copy for engagement"| F
+        F -->|"Tool: Pipefy"| G
+    end
+
+    subgraph "Phase 4: Publishing and Monitoring"
+        G -->|"KPI: 2x daily on LinkedIn/Facebook, 1x daily on TikTok"| H
+        H -->|"Target: 10k TikTok views, 10k FB reach, 1k LinkedIn reach per post"| A
+    end
+    </div>
+</body>
+</html>
