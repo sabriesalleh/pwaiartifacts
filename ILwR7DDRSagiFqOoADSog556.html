@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef ayub fill:#FFA500,stroke:#333,stroke-width:2px;
+
+    A[Customer Contact on Manychat] -->|9am-5pm, Mon-Sat| B(Consultant Reply)
+    B -->|Listen & Empathize| C{Propose Solution}
+    C -->|Coffee Talk| D[Organize Coffee Talk]
+    C -->|Quick Meeting| E[Schedule CRM Meeting]
+    D -->|Offline: 2x/month<br>Online: 2x/month| F[Execute Coffee Talk]
+    F -->|Introduction| G[Showcase Client Results]
+    G -->|Main Speaker: Sabrie| H[Answer Client Questions]
+    H -->|Demonstrate Solutions| I{Next Step}
+    I -->|Seminar Interest| J[Propose Monthly Seminar]
+    I -->|Product Interest| E
+    J -->|Once/month| K[Organize Seminar]
+    K -->|Execute Seminar| L[Teach Peopleworks.ai System]
+    L -->|Employee Handbook| M[HR Autopilot]
+    M -->|Offer Signup| N{Customer Decision}
+    N -->|Signup| E
+    N -->|No Signup| O[Follow-up]
+
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O ayub;
+
+    %% Tools
+    B -.->|Manychat| T1[Tool: Manychat<br>Best Practice: Quick Response]
+    D -.->|Pipefy| T2[Tool: Pipefy<br>Best Practice: Efficient Event Planning]
+    E -.->|Brevo| T3[Tool: Brevo<br>Best Practice: Personalized Scheduling]
+    F -.->|Google Meet| T4[Tool: Google Meet<br>Best Practice: Seamless Online Meetings]
+
+    %% KPIs
+    J -.->|Target| KPI1[KPI: 100 companies/month]
+    E -.->|Target| KPI2[KPI: 50 companies/month]
+    </div>
+</body>
+</html>
