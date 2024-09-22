@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f4f4f4', 'secondaryColor': '#f4f4f4', 'tertiaryColor': '#fff'}}}%%
+kanban
+    title Marketing Funnel Consideration Workflow
+    section 1. Initial Contact
+        Customer Contact on Manychat:a1, 0
+        Consultant Reply:a2, 0
+        Checklist:a3, 0
+        - Monitor Manychat during office hours (9am-5pm, Mon-Sat)<br>
+        - Respond promptly to customer queries<br>
+        - Listen actively and empathize with customer concerns<br>
+        - Identify customer's main problems and needs<br>
+        - Prepare personalized solutions
+    section 2. Solution Proposal
+        Propose Solution:b1, 0
+        Coffee Talk or Quick Meeting:b2, 0
+        Checklist:b3, 0
+        - Present Peopleworks.ai as a solution<br>
+        - Invite for Coffee Talk (offline/online) or Quick Meeting<br>
+        - Get commitment for top 3 questions<br>
+        - Encourage tough, problem-solving questions<br>
+        - Use persuasive techniques to secure commitment
+    section 3. Event Planning
+        Organize Coffee Talk:c1, 0
+        Schedule CRM Meeting:c2, 0
+        Organize Seminar:c3, 0
+        Checklist:c4, 0
+        - Use Pipefy for efficient event planning<br>
+        - Set dates for offline (2x/month) and online (2x/month) Coffee Talks<br>
+        - Use Brevo for personalized meeting scheduling<br>
+        - Plan monthly seminars<br>
+        - Prepare event materials and presentations
+    section 4. Event Execution
+        Execute Coffee Talk:d1, 0
+        Conduct CRM Meeting:d2, 0
+        Execute Seminar:d3, 0
+        Checklist:d4, 0
+        - Use Google Meet for online events<br>
+        - Start with introductions and showcase client results<br>
+        - Have Sabrie as main speaker to answer questions<br>
+        - Demonstrate solutions for each question<br>
+        - For seminars, teach Peopleworks.ai system, employee handbook, and HR autopilot<br>
+        - Present compelling offer for immediate signup
+    section 5. Follow-up
+        Process Signup:e1, 0
+        Follow-up with Non-signups:e2, 0
+        Checklist:e3, 0
+        - Process signups immediately<br>
+        - Schedule quick meeting on Peopleworks solution through CRM<br>
+        - For non-signups, create follow-up plan<br>
+        - Send personalized follow-up messages<br>
+        - Offer additional resources or information<br>
+        - Track conversion rates and adjust strategies accordingly
+
+    %% Role Color Coding
+    %% Ayub Azizan team: #FFA500
+    style a1 fill:#FFA500
+    style a2 fill:#FFA500
+    style b1 fill:#FFA500
+    style b2 fill:#FFA500
+    style c1 fill:#FFA500
+    style c2 fill:#FFA500
+    style c3 fill:#FFA500
+    style d1 fill:#FFA500
+    style d2 fill:#FFA500
+    style d3 fill:#FFA500
+    style e1 fill:#FFA500
+    style e2 fill:#FFA500
+    </div>
+</body>
+</html>
