@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef ayubTeam fill:#FFB3BA,stroke:#333,stroke-width:2px;
+
+    subgraph "1. Content Planning"
+        A[Extract problems and solutions from branding directive or Co-Founder interview] -->|Monthly| B[Expand into 10 sub-problems with paired solutions]
+        B --> C[Submit to Sabrie for review and approval]
+        C --> D[List potential podcast topics featuring Ayub/Sabrie]
+    end
+
+    subgraph "2. Content Creation"
+        E[Record video content] -->|Monthly| F[Refine and edit video]
+        F --> G[Create captions and optimize for engagement]
+        G --> H[Produce multiple video formats]
+        H --> I[Create copy for each post]
+        I --> J[Submit to Sabrie for approval]
+    end
+
+    subgraph "3. Content Storage"
+        K[Store approved content in Google Drive content bank]
+    end
+
+    subgraph "4. Content Scheduling"
+        L[Create weekly posting schedule for all channels]
+    end
+
+    subgraph "5. Content Distribution"
+        M[Post content across all platforms]
+        M --> N[Respond to comments within 24 hours]
+        N --> O[Engage users to click bio link]
+    end
+
+    subgraph "6. Performance Analysis"
+        P[Generate weekly analytics report]
+        P --> Q[Make adjustments based on performance]
+    end
+
+    D --> E
+    J --> K
+    K --> L
+    L --> M
+    Q --> A
+
+    A:::ayubTeam
+    B:::ayubTeam
+    C:::ayubTeam
+    D:::ayubTeam
+    E:::ayubTeam
+    F:::ayubTeam
+    G:::ayubTeam
+    H:::ayubTeam
+    I:::ayubTeam
+    J:::ayubTeam
+    K:::ayubTeam
+    L:::ayubTeam
+    M:::ayubTeam
+    N:::ayubTeam
+    O:::ayubTeam
+    P:::ayubTeam
+    Q:::ayubTeam
+
+    %% Tools and KPIs
+    A1[Tools: Google Drive, Pipefy]
+    E1[Tools: Adobe Premiere]
+    M1[Tools: Facebook Business Manager]
+    P1[KPI: 2 daily posts on all channels]
+    P2[KPI: TikTok 50K views, YouTube Shorts 10K views]
+    P3[KPI: Instagram 50K views, Facebook 20K views]
+    P4[KPI: Reply within 24 hours]
+    P5[KPI: 10K bio link clicks per month]
+
+    A --> A1
+    E --> E1
+    M --> M1
+    P --> P1
+    P --> P2
+    P --> P3
+    P --> P4
+    P --> P5
+    </div>
+</body>
+</html>
