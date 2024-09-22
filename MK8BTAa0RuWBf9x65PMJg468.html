@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef AyubTeam fill:#FFA07A,stroke:#333,stroke-width:2px
+
+    A[Content Planning Phase] -->|Monthly| B[Problem Identification]
+    B -->|10 sub-problems| C[Solution Development]
+    C --> D[Podcast Planning]
+    D --> E[Submit to Sabrie for Review]
+    E -->|Feedback Loop| F[Revise and Get Approval]
+    F --> G[Content Creation Phase]
+    G -->|Monthly| H[Video Recording]
+    H --> I[Video Refinement and Editing]
+    I --> J[Create Multiple Video Formats]
+    J --> K[Develop Engaging Captions]
+    K --> L[Submit to Sabrie for Review]
+    L -->|Feedback Loop| M[Revise and Get Approval]
+    M --> N[Content Storage Phase]
+    N -->|Google Drive| O[Store in Content Bank]
+    O --> P[Distribution Planning Phase]
+    P -->|Weekly| Q[Create Posting Schedule]
+    Q --> R[Content Distribution Phase]
+    R -->|Daily| S[Post Across All Channels]
+    S --> T[Engagement Phase]
+    T -->|Within 24 hours| U[Reply to Comments]
+    U --> V[Guide Users to Bio Link]
+    V --> W[Analytics and Optimization Phase]
+    W -->|Weekly| X[Review Performance]
+    X --> Y[Make Adjustments]
+    Y -->|Continuous Improvement| A
+
+    %% Tools and KPIs
+    B -.->|Pipefy| B1[Track ideas and workflows]
+    H -.->|Adobe Premiere| H1[Edit and enhance videos]
+    O -.->|Google Drive| O1[Organize and store content]
+    S -.->|Facebook Business Manager| S1[Manage and schedule posts]
+    X -.->|Analytics Tools| X1[Track KPIs:<br>50K TikTok views<br>10K YouTube Shorts views<br>50K Instagram views<br>20K Facebook views<br>10K bio link clicks/month]
+
+    %% Special Instructions
+    E -.-> E1[Conduct in-depth interviews<br>for inspiring solutions]
+    Q -.-> Q1[Plan 2 posts daily<br>across all channels]
+    U -.-> U1[Respond within 24 hours]
+
+    %% Apply custom class to all nodes
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y AyubTeam;
+    </div>
+</body>
+</html>
