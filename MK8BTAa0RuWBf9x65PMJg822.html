@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef Ayub fill:#FFB3BA,stroke:#333,stroke-width:2px;
+
+    A[Content Planning Phase] -->|Monthly| B[Problem Identification]
+    B -->|Google Drive| C[Solution Development]
+    C --> D[Approval and Podcast Planning]
+    D -->|Monthly| E[Video Recording Phase]
+    E -->|Adobe Premiere| F[Video Editing and Refinement]
+    F --> G[Content Diversification]
+    G --> H[Final Approval]
+    H -->|Google Drive| I[Content Storage]
+    I -->|Weekly| J[Content Scheduling Phase]
+    J -->|Facebook Business Manager| K[Multi-Platform Distribution]
+    K --> L[Engagement and Response Phase]
+    L --> M[Analytics and Optimization Phase]
+
+    subgraph Content Planning Phase
+        A:::Ayub
+        B:::Ayub
+        C:::Ayub
+        D:::Ayub
+    end
+
+    subgraph Video Production Phase
+        E:::Ayub
+        F:::Ayub
+        G:::Ayub
+        H:::Ayub
+    end
+
+    subgraph Content Management Phase
+        I:::Ayub
+        J:::Ayub
+    end
+
+    subgraph Distribution and Engagement Phase
+        K:::Ayub
+        L:::Ayub
+    end
+
+    subgraph Analysis Phase
+        M:::Ayub
+    end
+
+    B -- "KPI: In-depth interview questions" --> D
+    K -- "KPI: 2 posts/day, platform-specific view targets" --> L
+    L -- "KPI: Reply within 24 hours" --> M
+    M -- "KPI: 10,000 bio link clicks/month" --> A
+    </div>
+</body>
+</html>
