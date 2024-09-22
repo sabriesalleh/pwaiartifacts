@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f4f4f4', 'secondaryColor': '#f4f4f4', 'tertiaryColor': '#fff'}}}%%
+kanban
+    title Marketing Funnel Consideration Workflow
+    section 1. Initial Contact
+        Customer Contact on Manychat:active, a1, 0
+        Consultant Reply:active, a2, 0
+        Checklist:active, a3, 0
+    section 2. Solution Proposal
+        Propose Solution:active, b1, 0
+        Coffee Talk or Quick Meeting:active, b2, 0
+        Checklist:active, b3, 0
+    section 3. Event Planning
+        Organize Coffee Talk:active, c1, 0
+        Schedule CRM Meeting:active, c2, 0
+        Organize Seminar:active, c3, 0
+        Checklist:active, c4, 0
+    section 4. Event Execution
+        Execute Coffee Talk:active, d1, 0
+        Conduct CRM Meeting:active, d2, 0
+        Execute Seminar:active, d3, 0
+        Checklist:active, d4, 0
+    section 5. Follow-up
+        Process Signup:active, e1, 0
+        Follow-up with Non-signups:active, e2, 0
+        Checklist:active, e3, 0
+
+    %% Role Color Coding
+    %% Ayub Azizan team: #FFA500
+    style a1 fill:#FFA500
+    style a2 fill:#FFA500
+    style b1 fill:#FFA500
+    style b2 fill:#FFA500
+    style c1 fill:#FFA500
+    style c2 fill:#FFA500
+    style c3 fill:#FFA500
+    style d1 fill:#FFA500
+    style d2 fill:#FFA500
+    style d3 fill:#FFA500
+    style e1 fill:#FFA500
+    style e2 fill:#FFA500
+    </div>
+</body>
+</html>
