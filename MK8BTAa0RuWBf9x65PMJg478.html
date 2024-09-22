@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#FFA07A', 'secondaryColor': '#FFD700', 'tertiaryColor': '#98FB98', 'quaternaryColor': '#87CEFA'}}}%%
+flowchart TD
+    subgraph "1. Content Planning Phase"
+        direction LR
+        A[Content Planning] -->|Monthly| B[Problem Identification]
+        B --> C[Solution Development]
+        C --> D[Podcast Planning]
+        D --> E[Review and Approval]
+        
+        A:::AyubTeam
+        B:::AyubTeam
+        C:::AyubTeam
+        D:::AyubTeam
+        E:::Sabrie
+        
+        A -.-> A1["
+        • Extract problems from branding directive or Co-Founder interview
+        • Expand into 10 sub-problems
+        • Pair solutions with each problem
+        • Plan for monthly video recording
+        • Utilize Pipefy for idea tracking and workflow management
+        "]
+        E -.-> E1["
+        • Review content plan
+        • Provide feedback and recommendations
+        • Approve final content plan
+        • Ensure in-depth interview questions for inspiring solutions
+        "]
+    end
+    
+    subgraph "2. Content Creation Phase"
+        direction LR
+        F[Video Recording] --> G[Video Refinement]
+        G --> H[Multi-Format Creation]
+        H --> I[Caption Development]
+        I --> J[Review and Approval]
+        
+        F:::AyubTeam
+        G:::AyubTeam
+        H:::AyubTeam
+        I:::AyubTeam
+        J:::Sabrie
+        
+        F -.-> F1["
+        • Conduct monthly video recording session
+        • Feature Ayub, Sabrie, or both in podcasts
+        • Use high-quality recording equipment
+        "]
+        G -.-> G1["
+        • Refine video content
+        • Add captions
+        • Edit for high engagement
+        • Use Adobe Premiere for professional editing
+        "]
+        H -.-> H1["
+        Create versions for:
+        • Full video
+        • YouTube Shorts
+        • TikTok
+        • Facebook Story
+        • Instagram Story
+        • Relevant pictures
+        "]
+        I -.-> I1["
+        • Develop engaging captions for each format
+        • Create copy to drive users to bio link
+        • Ensure consistency across all platforms
+        "]
+        J -.-> J1["
+        • Review all video formats and captions
+        • Provide feedback for adjustments
+        • Approve final content for distribution
+        "]
+    end
+    
+    subgraph "3. Content Storage and Distribution Planning"
+        direction LR
+        K[Content Storage] --> L[Distribution Planning]
+        
+        K:::AyubTeam
+        L:::AyubTeam
+        
+        K -.-> K1["
+        • Store approved content in Google Drive content bank
+        • Organize content by type, date, and platform
+        • Ensure easy access for team members
+        "]
+        L -.-> L1["
+        • Create weekly posting schedule
+        • Plan 2 posts daily across all channels
+        • Use Facebook Business Manager for scheduling
+        • Include all social media platforms and website blog
+        "]
+    end
+    
+    subgraph "4. Content Distribution and Engagement"
+        direction LR
+        M[Content Posting] --> N[User Engagement]
+        
+        M:::AyubTeam
+        N:::AyubTeam
+        
+        M -.-> M1["
+        • Post content across all channels:
+          - Facebook (post & story)
+          - Instagram (reels & story)
+          - TikTok
+          - YouTube (video & shorts)
+          - Website blog
+          - Ayub's personal accounts
+        • Ensure timely and consistent posting
+        "]
+        N -.-> N1["
+        • Reply to all comments within 24 hours
+        • Use standard templates for offers:
+          - Free coffee talk
+          - Free seminar
+          - Free guidelines
+        • Guide users to click on bio link
+        • Track engagement metrics
+        "]
+    end
+    
+    subgraph "5. Analytics and Optimization"
+        direction LR
+        O[Performance Review] --> P[Content Optimization]
+        
+        O:::AyubTeam
+        P:::AyubTeam
+        
+        O -.-> O1["
+        • Weekly review of post performance
+        • Track KPIs:
+          - 50,000 views per TikTok video
+          - 10,000 views per YouTube Short
+          - 50,000 views per Instagram post
+          - 20,000 views per Facebook post
+          - 10,000 bio link clicks per month
+        • Use analytics tools in each platform
+        "]
+        P -.-> P1["
+        • Analyze high-performing content
+        • Identify areas for improvement
+        • Adjust content strategy based on insights
+        • Implement changes in next content cycle
+        • Continuously refine approach for better results
+        "]
+    end
+    
+    1 --> 2 --> 3 --> 4 --> 5
+    5 -->|Continuous Improvement| 1
+    
+    classDef AyubTeam fill:#FFA07A,stroke:#333,stroke-width:2px
+    classDef Sabrie fill:#FFD700,stroke:#333,stroke-width:2px
+    
+    %% Role Labels
+    AT[Ayub's Team]:::AyubTeam
+    S[Sabrie]:::Sabrie
+    </div>
+</body>
+</html>
