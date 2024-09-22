@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef ayubTeam fill:#FFA500,stroke:#333,stroke-width:2px;
+
+    A[Customer Contact on Manychat] -->|9am-5pm, Mon-Sat| B[Consultant Reply]
+    B -->|Listen & Empathize| C[Propose Solution]
+    C -->|Coffee Talk| D[Organize Event]
+    C -->|Quick Meeting| E[Schedule CRM Meeting]
+    D -->|Offline: 2x/month| F[Conduct Coffee Talk]
+    D -->|Online: 2x/month| F
+    F -->|Introduction| G[Showcase Client Results]
+    G -->|Main Speaker: Sabrie| H[Answer Client Questions]
+    H -->|Demonstrate Solutions| I[Invite to Seminar or CRM Meeting]
+    I -->|Seminar| J[Organize Monthly Seminar]
+    I -->|CRM Meeting| E
+    J -->|Execute & Implement| K[Conduct Seminar]
+    K -->|Teach PeopleWorks.ai System| L[Offer HR Outsourcing Solutions]
+    L -->|Sign-up| E
+
+    subgraph Consideration Phase
+    A
+    B
+    C
+    end
+
+    subgraph Engagement Phase
+    D
+    E
+    F
+    G
+    H
+    I
+    end
+
+    subgraph Conversion Phase
+    J
+    K
+    L
+    end
+
+    B:::ayubTeam
+    C:::ayubTeam
+    D:::ayubTeam
+    E:::ayubTeam
+    F:::ayubTeam
+    G:::ayubTeam
+    I:::ayubTeam
+    J:::ayubTeam
+    K:::ayubTeam
+    L:::ayubTeam
+
+    %% Tools Used
+    B -.->|Manychat| B1[Real-time Messaging]
+    D -.->|Pipefy| D1[Event Management]
+    E -.->|Brevo| E1[CRM & Email Marketing]
+    F -.->|Google Meet| F1[Online Meetings]
+
+    %% KPIs
+    J -.->|Target: 100 signups/month| J1[Seminar KPI]
+    E -.->|Target: 50 signups/month| E2[CRM Meeting KPI]
+    </div>
+</body>
+</html>
