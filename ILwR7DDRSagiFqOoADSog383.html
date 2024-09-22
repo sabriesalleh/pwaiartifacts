@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    A[Customer Contact on Manychat] -->|Phase: Initial Response| B[Consultant Reply 9am-5pm, Mon-Sat]
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#ffa,stroke:#333,stroke-width:2px
+
+    B -->|Phase: Engagement| C{Customer Interest}
+    style C fill:#aff,stroke:#333,stroke-width:2px
+
+    C -->|Coffee Talk| D[Propose Online/Offline Meeting]
+    C -->|More Product Info| E[Arrange Quick Meeting with Sabrie]
+    C -->|Seminar| F[Propose Monthly Seminar]
+
+    D -->|Phase: Event Organization| G[Organize Coffee Talk]
+    E -->|Phase: Product Demo| H[Schedule CRM Demo]
+    F -->|Phase: Event Organization| I[Organize Monthly Seminar]
+
+    G -->|Phase: Follow-up| J{Post-Coffee Talk Action}
+    H -->|Phase: Conversion| K[Signup for Peopleworks.ai]
+    I -->|Phase: Conversion| L[Offer Signup for Peopleworks.ai]
+
+    J -->|Interested in Seminar| F
+    J -->|Interested in Product| E
+    L -->|Signed Up| K
+
+    subgraph "Tools & KPIs"
+        M[Pipefy: Event Management]
+        N[Manychat: Initial Contact]
+        O[Brevo: Email Marketing]
+        P[Google Meet: Online Meetings]
+        Q[KPI: 100 Seminar Signups/Month]
+        R[KPI: 50 CRM Meeting Signups/Month]
+    end
+
+    classDef AyubTeam fill:#ff9999,stroke:#333,stroke-width:2px;
+    class B,D,E,F,G,H,I,J AyubTeam;
+    </div>
+</body>
+</html>
