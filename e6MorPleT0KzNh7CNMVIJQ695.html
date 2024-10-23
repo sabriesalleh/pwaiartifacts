@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef PM fill:#FFB3BA,stroke:#333,stroke-width:2px
+    classDef UIUX fill:#BAFFC9,stroke:#333,stroke-width:2px
+    classDef SM fill:#BAE1FF,stroke:#333,stroke-width:2px
+    classDef SE fill:#FFFFBA,stroke:#333,stroke-width:2px
+    classDef QA fill:#FFD9BA,stroke:#333,stroke-width:2px
+
+    A[Start] --> B[Requirement Gathering]
+    B --> C[Requirement Analysis]
+    C --> D[Create User Stories]
+    D --> E[Prioritize Backlog]
+    E --> F[Sprint Planning]
+    F --> G[UI/UX Design]
+    G --> H[Technical Design]
+    H --> I[Development]
+    I --> J[Code Review]
+    J --> K[Testing]
+    K --> L{Pass QA?}
+    L -->|Yes| M[Deploy to Staging]
+    L -->|No| I
+    M --> N[User Acceptance Testing]
+    N --> O{UAT Pass?}
+    O -->|Yes| P[Deploy to Production]
+    O -->|No| G
+    P --> Q[Post-deployment Monitoring]
+    Q --> R[Sprint Review]
+    R --> S[Sprint Retrospective]
+    S --> T[End]
+
+    class B,C,D,E PM
+    class G UIUX
+    class F,R,S SM
+    class H,I,J SE
+    class K,L,M,N,O,Q QA
+
+    B["Requirement Gathering<br>(Product Manager)<br>Tool: Asana<br>KPI: Complete, detailed requirements"]
+    C["Requirement Analysis<br>(Product Manager)<br>Tool: Asana<br>KPI: Clear, actionable items"]
+    D["Create User Stories<br>(Product Manager)<br>Tool: Asana<br>KPI: Well-defined, estimable stories"]
+    E["Prioritize Backlog<br>(Product Manager)<br>Tool: Asana<br>KPI: Aligned with business goals"]
+    F["Sprint Planning<br>(Scrum Master)<br>Tool: Asana<br>KPI: 1-week sprint, realistic commitments"]
+    G["UI/UX Design<br>(UI/UX Designer)<br>Tool: Figma<br>KPI: User-friendly, consistent designs"]
+    H["Technical Design<br>(Software Engineer)<br>Tool: PHP<br>KPI: Scalable, maintainable architecture"]
+    I["Development<br>(Software Engineer)<br>Tool: PHP<br>KPI: Clean, efficient code"]
+    J["Code Review<br>(Software Engineer)<br>Tool: PHP<br>KPI: Adherence to coding standards"]
+    K["Testing<br>(QA/QC Engineer)<br>Tool: PHP<br>KPI: Comprehensive test coverage"]
+    M["Deploy to Staging<br>(QA/QC Engineer)<br>Tool: PHP<br>KPI: Smooth deployment process"]
+    N["User Acceptance Testing<br>(QA/QC Engineer)<br>Tool: Asana<br>KPI: Meet user expectations"]
+    P["Deploy to Production<br>(Software Engineer)<br>Tool: PHP<br>KPI: Zero downtime deployment"]
+    Q["Post-deployment Monitoring<br>(QA/QC Engineer)<br>Tool: PHP<br>KPI: Quick issue detection and resolution"]
+    R["Sprint Review<br>(Scrum Master)<br>Tool: Asana<br>KPI: Demonstrate working features"]
+    S["Sprint Retrospective<br>(Scrum Master)<br>Tool: Asana<br>KPI: Identify improvements for next sprint"]
+    </div>
+</body>
+</html>
