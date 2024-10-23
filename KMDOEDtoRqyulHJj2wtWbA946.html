@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef operationTeam fill:#FFA500,stroke:#333,stroke-width:2px;
+
+    subgraph "Phase 1: Stock Assessment"
+        A[Check current in-house stock] -->|EjenGo system| B[Check new orders from schools]
+        B -->|EjenGo system| C[Verify stock balance > 30% for each SKU]
+    end
+
+    subgraph "Phase 2: Order Planning"
+        C --> D[Calculate required stock]
+        D --> E[Ensure order ≤ 30% of Farm Fresh sheet]
+        E --> F[Check stock availability with Farm Fresh PIC]
+    end
+
+    subgraph "Phase 3: Order Creation"
+        F -->|Farm Fresh system| G[Create Purchase Order]
+        G --> H[Submit PO before 12:00 PM Thursday]
+    end
+
+    subgraph "Phase 4: Order Processing"
+        H --> I[Wait for Farm Fresh PIC approval]
+        I --> J{Order Approved?}
+        J -->|Yes| K[Wait for delivery contact]
+        J -->|No| F
+    end
+
+    subgraph "Phase 5: Delivery Preparation"
+        K -->|iStoreiSend system| L[Setup inbound arrangement at Jooal warehouse]
+        L --> M[Confirm arrangement 2 days before arrival]
+    end
+
+    subgraph "Phase 6: Stock Reception"
+        M --> N[Receive stock at warehouse]
+        N -->|iStoreiSend system| O[Confirm stock inbound in iStoreiSend]
+    end
+
+    subgraph "Phase 7: Inventory Update"
+        O -->|EjenGo system| P[Update stock quantities in EjenGo]
+    end
+
+    %% KPI Indicators
+    Q[KPI: Stock balance ≥ 30% for each SKU]
+    R[KPI: Fulfill all school orders within one week]
+
+    %% Apply class to all nodes
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P operationTeam;
+    </div>
+</body>
+</html>
