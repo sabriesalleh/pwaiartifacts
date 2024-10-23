@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef operationTeam fill:#87CEEB,stroke:#333,stroke-width:2px;
+
+    subgraph "Phase 1: Stock Assessment"
+        A[Check current in-house stock] -->|EjenGo system| B[Check new orders from schools]
+        B --> C{Stock balance <br> less than 30%?}
+        C -->|Yes| D[Proceed to ordering]
+        C -->|No| E[Monitor stock levels]
+    end
+
+    subgraph "Phase 2: Order Creation"
+        D --> F[Check Farm Fresh stock availability]
+        F --> G[Create Purchase Order in Farm Fresh system]
+        G --> H{PO created by <br> 12:00 PM Thursday?}
+        H -->|Yes| I[Wait for approval]
+        H -->|No| J[Expedite PO creation]
+    end
+
+    subgraph "Phase 3: Order Processing"
+        I --> K[Approval received <br> within 1-3 days?]
+        K -->|Yes| L[Wait for delivery contact]
+        K -->|No| M[Follow up with Farm Fresh PIC]
+    end
+
+    subgraph "Phase 4: Delivery Preparation"
+        L --> N[Setup inbound arrangement <br> at Jooal warehouse]
+        N --> O[Confirm arrangement <br> 2 days before arrival]
+    end
+
+    subgraph "Phase 5: Stock Receipt"
+        O --> P[Receive stock at iStoreiSend]
+        P --> Q[Confirm inbound in iStoreiSend system]
+    end
+
+    subgraph "Phase 6: Inventory Update"
+        Q --> R[Update stock quantity in EjenGo system]
+    end
+
+    %% KPI Indicators
+    S[KPI: Stock balance ≥ 30% for every SKU]
+    T[KPI: Fulfill all school orders within one week]
+
+    %% Special Instruction
+    U[Tip: Order ≤ 30% of available stock in Farm Fresh sheet]
+
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R operationTeam;
+    </div>
+</body>
+</html>
