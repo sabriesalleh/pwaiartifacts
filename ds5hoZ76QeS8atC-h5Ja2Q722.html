@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef planning fill:#FFB3BA,stroke:#333,stroke-width:2px;
+    classDef execution fill:#BAFFC9,stroke:#333,stroke-width:2px;
+    classDef monitoring fill:#BAE1FF,stroke:#333,stroke-width:2px;
+    classDef evaluation fill:#FFFFBA,stroke:#333,stroke-width:2px;
+
+    A[Planning Phase]:::planning
+    B[Daily Team Briefing<br>Tool: Microsoft Teams<br>KPI: 100% attendance]
+    C[Task Allocation<br>Tool: Asana<br>KPI: 95% task completion rate]
+    D[Resource Management<br>Tool: SAP<br>KPI: 98% resource utilization]
+
+    E[Execution Phase]:::execution
+    F[Team Supervision<br>Tool: Slack<br>KPI: 90% employee satisfaction]
+    G[Customer Interaction<br>Tool: CRM Software<br>KPI: 95% customer satisfaction]
+    H[Problem Solving<br>Tool: Trello<br>KPI: 85% issues resolved within SLA]
+
+    I[Monitoring Phase]:::monitoring
+    J[Performance Tracking<br>Tool: PowerBI<br>KPI: Daily dashboard updates]
+    K[Quality Control<br>Tool: Six Sigma<br>KPI: 99% quality standards met]
+    L[Inventory Management<br>Tool: RFID System<br>KPI: 99.5% inventory accuracy]
+
+    M[Evaluation Phase]:::evaluation
+    N[Data Analysis<br>Tool: Tableau<br>KPI: Weekly report submission]
+    O[Feedback Collection<br>Tool: SurveyMonkey<br>KPI: 80% response rate]
+    P[Improvement Planning<br>Tool: Mind Mapping Software<br>KPI: 5% efficiency increase quarterly]
+
+    A --> B --> C --> D
+    D --> E
+    E --> F --> G --> H
+    H --> I
+    I --> J --> K --> L
+    L --> M
+    M --> N --> O --> P
+
+    style A font-weight:bold
+    style E font-weight:bold
+    style I font-weight:bold
+    style M font-weight:bold
+
+    %% Special Instructions
+    subgraph Tips
+        T1[Prioritize team communication]
+        T2[Regularly update skills]
+        T3[Practice active listening]
+        T4[Embrace continuous improvement]
+    end
+    </div>
+</body>
+</html>
