@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef supervisor fill:#FFB3BA,stroke:#333,stroke-width:2px
+    classDef employee fill:#BAFFC9,stroke:#333,stroke-width:2px
+    classDef hr fill:#BAE1FF,stroke:#333,stroke-width:2px
+
+    A[Start] --> B
+    B[Planning Phase]:::supervisor
+    B --> |Use project management software| C(Set team goals and objectives)
+    C --> |KPI: Goal completion rate| D(Allocate resources and assign tasks)
+    D --> E[Execution Phase]:::supervisor
+    E --> |Use time tracking software| F(Monitor daily operations)
+    F --> |KPI: Productivity rate| G(Provide guidance and support)
+    G --> H[Evaluation Phase]:::supervisor
+    H --> |Use performance management system| I(Conduct regular performance reviews)
+    I --> |KPI: Employee performance scores| J(Identify areas for improvement)
+    J --> K[Development Phase]:::supervisor
+    K --> |Use learning management system| L(Provide training and development opportunities)
+    L --> |KPI: Training completion rate| M(Coach and mentor team members)
+    M --> N[Feedback Phase]:::supervisor
+    N --> |Use feedback collection tool| O(Gather feedback from team and stakeholders)
+    O --> |KPI: Employee satisfaction score| P(Implement improvements based on feedback)
+    P --> Q[Reporting Phase]:::supervisor
+    Q --> |Use data visualization tools| R(Prepare and present performance reports)
+    R --> |KPI: Report accuracy and timeliness| S(Communicate results to upper management)
+    S --> T[End]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style T fill:#f9f,stroke:#333,stroke-width:2px
+    </div>
+</body>
+</html>
