@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        %%{init: {'theme': 'default', 'themeVariables': { 'fontSize': '16px'}}}%%
+
+flowchart LR
+    subgraph To_Do[To Do]
+        direction TB
+        1["1. Preparation Phase"]
+        2["2. Safety Check Phase"]
+    end
+
+    subgraph In_Progress[In Progress]
+        direction TB
+        3["3. Warm-up Phase"]
+        4["4. Main Instruction Phase"]
+        5["5. Cool-down Phase"]
+    end
+
+    subgraph Completed[Completed]
+        direction TB
+        6["6. Conclusion Phase"]
+    end
+
+    To_Do --> In_Progress --> Completed
+
+    classDef instructor fill:#FFA07A,stroke:#333,stroke-width:2px
+    classDef lifeguard fill:#98FB98,stroke:#333,stroke-width:2px
+    classDef admin fill:#87CEFA,stroke:#333,stroke-width:2px
+
+    1:::instructor
+    2:::lifeguard
+    3:::instructor
+    4:::instructor
+    5:::instructor
+    6:::admin
+
+    1[/"1. Preparation Phase (Instructor)
+    • Arrive 15 minutes before class
+    • Take attendance using attendance record
+    • Prepare and organize equipment
+    • Review lesson plan
+    • Ensure proper attire and swim gear"/]
+
+    2[/"2. Safety Check Phase (Lifeguard)
+    • Inspect pool area for hazards
+    • Check water quality and temperature
+    • Ensure safety equipment is accessible
+    • Verify lifeguard stations are manned
+    • Brief instructors on any safety concerns"/]
+
+    3[/"3. Warm-up Phase (Instructor)
+    • Lead 5-10 minutes of land-based exercises
+    • Conduct water acclimation activities
+    • Perform basic stretching routines
+    • Introduce breath control exercises
+    • Assess students' readiness for main session"/]
+
+    4[/"4. Main Instruction Phase (Instructor)
+    • Kindy Class: 45 minutes per session
+    • Learn To Swim Class: 55 minutes per session
+    • Teach age-appropriate swimming techniques
+    • Conduct drills and practice sessions
+    • Provide individual feedback and corrections
+    • Incorporate fun games and challenges
+    • Monitor students' progress and adjust as needed"/]
+
+    5[/"5. Cool-down Phase (Instructor)
+    • Lead gentle swimming or floating exercises
+    • Conduct flexibility and relaxation activities
+    • Review key points from the session
+    • Encourage students to practice at home
+    • Prepare for high five jumps"/]
+
+    6[/"6. Conclusion Phase (Admin)
+    • Perform high five jumps with students
+    • Provide feedback to parents/guardians
+    • Update progress reports
+    • Clean and store equipment
+    • Plan for next session
+    • Track completion of 4 sessions per month (KPI)"/]
+
+    </div>
+</body>
+</html>
