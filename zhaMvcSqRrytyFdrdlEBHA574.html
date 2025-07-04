@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef instructor fill:#FFA500,stroke:#333,stroke-width:2px;
+
+    A[("Preparation Phase<br/>Role: Instructor<br/>Tool: Attendance record<br/>KPI: 4 sessions/month")] :::instructor
+    B["Arrive 15 minutes early"]
+    C["Check pool safety and equipment"]
+    D["Record attendance"]
+    E["Brief students on lesson plan"]
+    F[("Warm-up Phase<br/>Role: Instructor")]:::instructor
+    G["Lead 5-10 minute warm-up exercises"]
+    H[("Main Lesson Phase<br/>Role: Instructor")]:::instructor
+    I["Conduct 30-40 minute main lesson<br/>(based on skill level)"]
+    J[("Cool-down Phase<br/>Role: Instructor")]:::instructor
+    K["Lead 5-minute cool-down exercises"]
+    L["Conduct high-five jumps"]
+    M[("Wrap-up Phase<br/>Role: Instructor")]:::instructor
+    N["Provide feedback to students"]
+    O["Clean up and secure equipment"]
+
+    A --> B --> C --> D --> E --> F
+    F --> G --> H --> I --> J
+    J --> K --> L --> M --> N --> O
+    </div>
+</body>
+</html>
