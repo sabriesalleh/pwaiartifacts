@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Mermaid Diagram</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+        graph TD
+    classDef instructor fill:#FFA07A,stroke:#333,stroke-width:2px
+
+    A[Preparation Phase]:::instructor
+    B[Safety Check Phase]:::instructor
+    C[Warm-up Phase]:::instructor
+    D[Main Instruction Phase]:::instructor
+    E[Cool-down Phase]:::instructor
+    F[Conclusion Phase]:::instructor
+
+    A -->|15 min before class| B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+
+    A[Preparation Phase<br><br>Tool: Attendance record<br>Action: Take attendance, prepare equipment]
+    B[Safety Check Phase<br><br>Action: Ensure pool and surroundings are safe]
+    C[Warm-up Phase<br><br>Action: Conduct warm-up exercises]
+    D[Main Instruction Phase<br><br>Kindy Class: 45 min<br>Learn To Swim: 55 min]
+    E[Cool-down Phase<br><br>Action: Perform cool-down exercises]
+    F[Conclusion Phase<br><br>Action: High five jumps<br>KPI: 4 sessions/month]
+
+    style A font-weight:bold
+    style B font-weight:bold
+    style C font-weight:bold
+    style D font-weight:bold
+    style E font-weight:bold
+    style F font-weight:bold
+    </div>
+</body>
+</html>
